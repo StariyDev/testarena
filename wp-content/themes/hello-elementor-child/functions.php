@@ -108,11 +108,11 @@ add_action( 'wp_enqueue_scripts', 'luxury_enqueue_assets', 20 );
  */
 function luxury_google_fonts_url() {
 	$font_families = array(
-		'Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500',
-		'Montserrat:wght@300;400;500;600;700',
+		'family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500',
+		'family=Montserrat:wght@300;400;500;600;700',
 	);
 
-	return 'https://fonts.googleapis.com/css2?' . implode( '&', array_map( 'strval', $font_families ) ) . '&display=swap';
+	return 'https://fonts.googleapis.com/css2?' . implode( '&', $font_families ) . '&display=swap';
 }
 
 /**
