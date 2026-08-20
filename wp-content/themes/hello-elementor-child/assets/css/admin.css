@@ -1,0 +1,17 @@
+/**
+ * 33 Store — Admin page styles.
+ */
+
+.luxury-admin .luxury-admin__lead {
+	max-width: 720px;
+	font-size: 14px;
+}
+
+.luxury-admin table.widefat {
+	border: 1px solid #e5e5e5;
+	border-radius: 2px;
+}
+
+.luxury-admin h2 {
+	margin-top: 32px;
+}

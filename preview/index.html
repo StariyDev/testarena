@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>33 Store — Luxury Monochrome Design System (Preview)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../wp-content/themes/hello-elementor-child/style.css" />
+<link rel="stylesheet" href="../wp-content/themes/hello-elementor-child/assets/css/luxury-theme.css" />
+<style>
+  /* ============================================================
+     Preview-only styles (NOT part of the theme)
+     ============================================================ */
+  body.luxury-design { background: var(--lux-white); }
+
+  .demo-hero {
+    background: var(--lux-bg-offwhite);
+    border-bottom: 1px solid var(--lux-light-gray);
+  }
+  .demo-hero__inner {
+    max-width: var(--lux-maxw);
+    margin: 0 auto;
+    padding: clamp(56px, 9vw, 120px) var(--lux-gutter);
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: clamp(24px, 5vw, 80px);
+    align-items: center;
+  }
+  .demo-hero__eyebrow {
+    font-family: var(--lux-font-accent);
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--lux-muted);
+    display: block;
+    margin-bottom: 18px;
+  }
+  .demo-hero h1 {
+    font-size: clamp(40px, 6vw, 76px);
+    margin-bottom: 20px;
+  }
+  .demo-hero p.lead {
+    max-width: 480px;
+    margin-bottom: 32px;
+  }
+  .demo-hero__images { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .demo-hero__images img { width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block; }
+  .demo-hero__images img:first-child { margin-top: 48px; }
+  @media (max-width: 900px) {
+    .demo-hero__inner { grid-template-columns: 1fr; }
+    .demo-hero__images { display: none; }
+  }
+
+  .demo-section-title {
+    text-align: center;
+    padding: clamp(56px, 7vw, 96px) var(--lux-gutter) 8px;
+  }
+  .demo-section-title .demo-eyebrow {
+    font-family: var(--lux-font-accent);
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--lux-muted);
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  /* Tokens & typography specimens */
+  .demo-tokens {
+    max-width: var(--lux-maxw);
+    margin: 0 auto;
+    padding: 24px var(--lux-gutter) 0;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+  }
+  .demo-token { border: 1px solid var(--lux-light-gray); }
+  .demo-token__chip { height: 72px; border-bottom: 1px solid var(--lux-light-gray); }
+  .demo-token__meta { padding: 8px 10px; }
+  .demo-token__name {
+    display: block;
+    font-family: var(--lux-font-accent);
+    font-weight: 600;
+    font-size: 9px;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+  }
+  .demo-token__hex { display: block; font-size: 11px; color: var(--lux-muted); font-family: monospace; }
+  @media (max-width: 1024px) { .demo-tokens { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 560px) { .demo-tokens { grid-template-columns: repeat(2, 1fr); } }
+
+  .demo-type {
+    max-width: var(--lux-maxw-content);
+    margin: 0 auto;
+    padding: 48px var(--lux-gutter) 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(24px, 4vw, 64px);
+    align-items: center;
+  }
+  .demo-type__sample { font-family: var(--lux-font-heading); font-weight: 500; font-size: clamp(28px, 4vw, 44px); line-height: 1.2; letter-spacing: 1.5px; }
+  .demo-type__note { margin-top: 8px; font-family: var(--lux-font-accent); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--lux-muted); }
+  @media (max-width: 800px) { .demo-type { grid-template-columns: 1fr; } }
+
+  /* Single-product showcase */
+  .demo-single {
+    max-width: var(--lux-maxw);
+    margin: clamp(56px, 8vw, 110px) auto 0;
+    padding: 0 var(--lux-gutter);
+  }
+  .demo-single .demo-single__label {
+    font-family: var(--lux-font-accent);
+    font-weight: 600;
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--lux-muted);
+    display: block;
+    margin-bottom: 18px;
+    border-bottom: 1px solid var(--lux-light-gray);
+    padding-bottom: 12px;
+  }
+  .demo-note {
+    max-width: 720px;
+    margin: 40px auto 0;
+    padding: 0 var(--lux-gutter);
+    text-align: center;
+    font-family: var(--lux-font-accent);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--lux-muted);
+  }
+  .demo-note a { color: var(--lux-black); border-bottom: 1px solid var(--lux-black); }
+</style>
+</head>
+<body class="luxury-design single-product woocommerce">
+
+<script>
+  /* Static-preview config: no WooCommerce, so quick-add simulates. */
+  window.LUXURY = {
+    wcActive: false,
+    cartCount: 2,
+    i18n: { addedToBag: 'ADDED TO BAG' }
+  };
+</script>
+
+<!-- ================= ANNOUNCEMENT BAR ================= -->
+<div class="luxury-topbar" role="region" aria-label="Announcement">
+  <div class="luxury-topbar__inner">
+    <span class="luxury-topbar__text">100% AUTHENTIC LUXURY | EXPRESS WORLDWIDE SHIPPING</span>
+  </div>
+</div>
+
+<!-- ================= MAIN HEADER ================= -->
+<header id="luxury-header" class="luxury-header" data-luxury-header>
+  <div class="luxury-header__inner">
+    <button type="button" class="luxury-header__burger" aria-label="Open menu" aria-expanded="false" data-luxury-menu-open>
+      <svg width="22" height="14" viewBox="0 0 22 14" fill="none" aria-hidden="true" focusable="false"><path d="M0 1h22M0 7h22M0 13h22" stroke="currentColor" stroke-width="1.2"/></svg>
+    </button>
+
+    <a class="luxury-header__logo" href="#" rel="home" aria-label="Home">
+      <span class="luxury-header__logo-text">33 STORE</span>
+    </a>
+
+    <nav class="luxury-header__nav" aria-label="Main menu">
+      <ul class="luxury-nav">
+        <li><a href="#shop">New In</a></li>
+        <li><a href="#shop">Ready To Wear</a></li>
+        <li><a href="#shop">Bags</a></li>
+        <li><a href="#shop">Shoes</a></li>
+        <li><a href="#shop">Accessories</a></li>
+        <li><a href="#sale">Sale</a></li>
+      </ul>
+    </nav>
+
+    <div class="luxury-header__actions">
+      <button type="button" class="luxury-header__action" aria-label="Search" data-luxury-search-open>
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="5.75" stroke="currentColor" stroke-width="1.2"/><path d="M12.5 12.5L17 17" stroke="currentColor" stroke-width="1.2"/></svg>
+      </button>
+      <a class="luxury-header__action" href="#" aria-label="My account">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" focusable="false"><circle cx="9" cy="5.5" r="3.25" stroke="currentColor" stroke-width="1.2"/><path d="M3 16.5c.6-4 3-6 6-6s5.4 2 6 6" stroke="currentColor" stroke-width="1.2"/></svg>
+      </a>
+      <button type="button" class="luxury-header__action" aria-label="Shopping bag" data-luxury-drawer-open>
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" focusable="false"><path d="M3.5 6h11l-.9 9.2a1.5 1.5 0 0 1-1.5 1.3H5.9a1.5 1.5 0 0 1-1.5-1.3L3.5 6Z" stroke="currentColor" stroke-width="1.2"/><path d="M6 6V4.75a3 3 0 0 1 6 0V6" stroke="currentColor" stroke-width="1.2"/></svg>
+        <span class="luxury-cart-count" data-luxury-cart-count>2</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="demo-hero">
+  <div class="demo-hero__inner">
+    <div>
+      <span class="demo-hero__eyebrow">Spring–Summer 2026</span>
+      <h1>The Quiet Luxury Edit</h1>
+      <p class="lead">A curated selection of timeless pieces — guaranteed 100% authentic, verified by our in-house brand specialists and delivered worldwide.</p>
+      <a class="elementor-button" href="#shop">Shop the Edit</a>
+    </div>
+    <div class="demo-hero__images">
+      <img src="img/card-01.jpg" alt="Editorial look" />
+      <img src="img/card-03.jpg" alt="Editorial look" />
+    </div>
+  </div>
+</section>
+
+<!-- ================= DESIGN TOKENS ================= -->
+<section id="tokens">
+  <div class="demo-section-title">
+    <span class="demo-eyebrow">Design System</span>
+    <h2>Monochrome Palette</h2>
+  </div>
+  <div class="demo-tokens">
+    <div class="demo-token"><div class="demo-token__chip" style="background:#111111;"></div><div class="demo-token__meta"><span class="demo-token__name">Lux Black</span><span class="demo-token__hex">#111111</span></div></div>
+    <div class="demo-token"><div class="demo-token__chip" style="background:#1A1A1A;"></div><div class="demo-token__meta"><span class="demo-token__name">Lux Charcoal</span><span class="demo-token__hex">#1A1A1A</span></div></div>
+    <div class="demo-token"><div class="demo-token__chip" style="background:#555555;"></div><div class="demo-token__meta"><span class="demo-token__name">Lux Muted</span><span class="demo-token__hex">#555555</span></div></div>
+    <div class="demo-token"><div class="demo-token__chip" style="background:#E5E5E5;"></div><div class="demo-token__meta"><span class="demo-token__name">Lux Light Gray</span><span class="demo-token__hex">#E5E5E5</span></div></div>
+    <div class="demo-token"><div class="demo-token__chip" style="background:#F9F8F6;"></div><div class="demo-token__meta"><span class="demo-token__name">Lux Offwhite</span><span class="demo-token__hex">#F9F8F6</span></div></div>
+    <div class="demo-token"><div class="demo-token__chip" style="background:#FFFFFF; border-bottom-color:#E5E5E5;"></div><div class="demo-token__meta"><span class="demo-token__name">Lux White</span><span class="demo-token__hex">#FFFFFF</span></div></div>
+  </div>
+
+  <div class="demo-type">
+    <div>
+      <div class="demo-type__sample">Cormorant Garamond</div>
+      <p class="demo-type__note">Headings · 500 · 1.5px tracking · line-height 1.2</p>
+      <p style="margin-top:14px; font-family:var(--lux-font-body); font-weight:300; font-size:15px; line-height:1.7; color:var(--lux-muted);">Montserrat Light for body copy — comfortable reading at 15px, 1.7 line height.</p>
+    </div>
+    <div>
+      <p style="font-family:var(--lux-font-accent); font-weight:600; font-size:12px; letter-spacing:2px; text-transform:uppercase; margin:0 0 10px;">Montserrat Semibold — Uppercase</p>
+      <p style="font-family:var(--lux-font-accent); font-weight:600; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--lux-muted); margin:0 0 6px;">NAVIGATION · BUTTONS · BADGES · 11–13PX · 2PX TRACKING</p>
+      <p style="font-family:var(--lux-font-body); font-weight:300; font-size:14px; color:var(--lux-muted);">Body &amp; descriptions: Montserrat Light, 14–15px, 1.7 line-height.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRODUCT GRID ================= -->
+<section id="shop">
+  <div class="demo-section-title">
+    <span class="demo-eyebrow">New Arrivals</span>
+    <h2>The Edit — This Week</h2>
+  </div>
+
+  <div class="woocommerce">
+    <ul class="products columns-3">
+
+      <li class="product type-product">
+        <a href="#single" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+          <img src="img/card-01.jpg" class="attachment-woocommerce_thumbnail" alt="Wool Oversized Coat" loading="lazy" />
+          <img src="img/card-02.jpg" class="luxury-loop-hover" alt="" loading="lazy" />
+        </a>
+        <span class="luxury-product-brand">Maison Noire</span>
+        <h2 class="woocommerce-loop-product__title">Wool Oversized Coat</h2>
+        <span class="price"><span class="woocommerce-Price-amount">₾ 2,450</span></span>
+        <a href="#" data-luxury-quick-add="1" data-luxury-product-type="simple" data-product_id="101" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add to cart</a>
+      </li>
+
+      <li class="product type-product">
+        <a href="#single" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+          <img src="img/card-03.jpg" class="attachment-woocommerce_thumbnail" alt="Silk Slip Dress" loading="lazy" />
+          <img src="img/card-04.jpg" class="luxury-loop-hover" alt="" loading="lazy" />
+        </a>
+        <span class="luxury-product-brand">Atelier Blanc</span>
+        <h2 class="woocommerce-loop-product__title">Silk Slip Dress</h2>
+        <span class="price"><del aria-hidden="true">₾ 1,290</del><ins><span class="woocommerce-Price-amount">₾ 990</span></ins></span>
+        <a href="#" data-luxury-quick-add="1" data-luxury-product-type="simple" data-product_id="102" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add to cart</a>
+      </li>
+
+      <li class="product type-product">
+        <a href="#single" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+          <img src="img/card-05.jpg" class="attachment-woocommerce_thumbnail" alt="Cloud Clutch" loading="lazy" />
+          <img src="img/card-06.jpg" class="luxury-loop-hover" alt="" loading="lazy" />
+        </a>
+        <span class="luxury-product-brand">Scandi Atelier</span>
+        <h2 class="woocommerce-loop-product__title">Cloud Clutch Bag</h2>
+        <span class="price"><span class="woocommerce-Price-amount">₾ 1,150</span></span>
+        <a href="#" data-luxury-quick-add="1" data-luxury-product-type="simple" data-product_id="103" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add to cart</a>
+      </li>
+
+      <li class="product type-product">
+        <a href="#single" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+          <img src="img/card-07.jpg" class="attachment-woocommerce_thumbnail" alt="Structured Mini Bag" loading="lazy" />
+          <img src="img/card-09.jpg" class="luxury-loop-hover" alt="" loading="lazy" />
+        </a>
+        <span class="luxury-product-brand">Poelle</span>
+        <h2 class="woocommerce-loop-product__title">Structured Mini Bag</h2>
+        <span class="price"><span class="woocommerce-Price-amount">₾ 1,480</span></span>
+        <a href="#" data-luxury-quick-add="1" data-luxury-product-type="simple" data-product_id="104" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add to cart</a>
+      </li>
+
+      <li class="product type-product">
+        <a href="#single" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+          <img src="img/card-02.jpg" class="attachment-woocommerce_thumbnail" alt="Tailored Blazer" loading="lazy" />
+          <img src="img/card-10.jpg" class="luxury-loop-hover" alt="" loading="lazy" />
+        </a>
+        <span class="luxury-product-brand">Atelier Blanc</span>
+        <h2 class="woocommerce-loop-product__title">Tailored Double-Breasted Blazer</h2>
+        <span class="price"><span class="woocommerce-Price-amount">₾ 1,890</span></span>
+        <a href="#" data-luxury-quick-add="1" data-luxury-product-type="simple" data-product_id="105" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add to cart</a>
+      </li>
+
+      <li class="product type-product">
+        <a href="#single" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+          <img src="img/card-08.jpg" class="attachment-woocommerce_thumbnail" alt="Leather Tote" loading="lazy" />
+          <img src="img/card-06.jpg" class="luxury-loop-hover" alt="" loading="lazy" />
+        </a>
+        <span class="luxury-product-brand">Maison Noire</span>
+        <h2 class="woocommerce-loop-product__title">Sculptural Leather Tote</h2>
+        <span class="price"><span class="woocommerce-Price-amount">₾ 2,120</span></span>
+        <a href="#" data-luxury-quick-add="1" data-luxury-product-type="simple" data-product_id="106" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add to cart</a>
+      </li>
+
+    </ul>
+  </div>
+</section>
+
+<!-- ================= SINGLE PRODUCT ================= -->
+<section class="demo-single" id="single">
+  <span class="demo-single__label">Single Product — Sticky Gallery + Sticky Summary</span>
+  <main class="site-main">
+    <div class="woocommerce">
+      <div id="product-999" class="product type-product luxury-product-card">
+
+        <!-- Left: vertical scrollable gallery (3:4) -->
+        <div class="woocommerce-product-gallery luxury-gallery" data-luxury-gallery>
+          <figure class="luxury-gallery__item">
+            <a href="img/card-05.jpg" data-luxury-gallery-link aria-label="View product image 1 of 4">
+              <img src="img/card-05.jpg" class="luxury-gallery__img" alt="Cloud Clutch Bag" fetchpriority="high" />
+            </a>
+          </figure>
+          <figure class="luxury-gallery__item">
+            <a href="img/card-06.jpg" data-luxury-gallery-link aria-label="View product image 2 of 4">
+              <img src="img/card-06.jpg" class="luxury-gallery__img" alt="Cloud Clutch Bag detail" loading="lazy" />
+            </a>
+          </figure>
+          <figure class="luxury-gallery__item">
+            <a href="img/card-07.jpg" data-luxury-gallery-link aria-label="View product image 3 of 4">
+              <img src="img/card-07.jpg" class="luxury-gallery__img" alt="Cloud Clutch Bag detail" loading="lazy" />
+            </a>
+          </figure>
+          <figure class="luxury-gallery__item">
+            <a href="img/card-09.jpg" data-luxury-gallery-link aria-label="View product image 4 of 4">
+              <img src="img/card-09.jpg" class="luxury-gallery__img" alt="Cloud Clutch Bag detail" loading="lazy" />
+            </a>
+          </figure>
+        </div>
+
+        <!-- Right: sticky summary -->
+        <div class="summary entry-summary">
+          <h4 class="luxury-single-brand">Scandi Atelier</h4>
+          <h1 class="product_title entry-title">Cloud Clutch Bag</h1>
+          <p class="price"><span class="woocommerce-Price-amount">₾ 1,150</span></p>
+          <p class="luxury-tax-note">Price includes VAT · Taxes calculated at checkout</p>
+
+          <form class="variations_form cart" method="post">
+            <table class="variations" cellspacing="0" role="presentation">
+              <tbody>
+                <tr>
+                  <td class="label"><label for="size">Size</label></td>
+                  <td class="value">
+                    <select id="size" name="attribute_size">
+                      <option value="">Choose an option</option>
+                      <option value="one-size">One Size</option>
+                    </select>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="woocommerce-variation-add-to-cart variations_button">
+              <div class="quantity">
+                <input type="number" class="input-text qty text" step="1" min="1" value="1" title="Qty" size="4" />
+              </div>
+              <button type="button" class="single_add_to_cart_button button alt" data-luxury-drawer-open>ADD TO BAG</button>
+            </div>
+          </form>
+
+          <div class="luxury-authenticity">
+            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true" focusable="false">
+              <path d="M13 2l9 3v7c0 6-3.8 10.4-9 12-5.2-1.6-9-6-9-12V5l9-3Z" stroke="currentColor" stroke-width="1.1"/>
+              <path d="M8.5 12.8l3 3 6-6.2" stroke="currentColor" stroke-width="1.1"/>
+            </svg>
+            <p class="luxury-authenticity__text">
+              <strong>Guaranteed 100% Authentic.</strong>
+              Verified by in-house brand specialists.
+            </p>
+          </div>
+
+          <div class="luxury-trust-strip">
+            <span>✓ Express worldwide shipping</span>
+            <span>✓ Free returns within 14 days</span>
+          </div>
+
+          <div class="product_meta">
+            <span class="posted_in">Categories: <a href="#shop">Bags</a>, <a href="#shop">Accessories</a></span>
+            <span class="sku_wrapper">SKU: <span class="sku">CC-001-OS</span></span>
+          </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="woocommerce-tabs wc-tabs-wrapper">
+          <ul class="tabs wc-tabs" role="tablist">
+            <li class="description_tab active" role="tab"><a href="#tab-description">Description</a></li>
+            <li class="additional_information_tab" role="tab"><a href="#tab-additional">Shipping &amp; Returns</a></li>
+            <li class="reviews_tab" role="tab"><a href="#tab-reviews">Authenticity</a></li>
+          </ul>
+          <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab" id="tab-description">
+            <h2>Description</h2>
+            <p>The Cloud Clutch is sculpted from vegetable-tanned Italian leather with a polished minimal silhouette. Fully lined, with an internal slip pocket and an adjustable shoulder strap.</p>
+          </div>
+          <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--additional panel entry-content wc-tab" id="tab-additional" style="display:none;">
+            <h2>Shipping &amp; Returns</h2>
+            <p>Complimentary express shipping worldwide in 2–4 business days. Returns accepted within 14 days of delivery.</p>
+          </div>
+          <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--reviews panel entry-content wc-tab" id="tab-reviews" style="display:none;">
+            <h2>Authenticity</h2>
+            <p>Every piece is authenticated by our in-house brand specialists before dispatch. A certificate of authenticity is included with each order.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+</section>
+
+<p class="demo-note">This is a static preview of the design system. The live build applies the same CSS, fonts and tokens to the WordPress child theme — see <a href="README.md">README.md</a> for deployment.</p>
+
+<!-- ================= FOOTER ================= -->
+<footer id="luxury-footer" class="luxury-footer">
+  <div class="luxury-footer__inner">
+    <div class="luxury-footer__brand">
+      <div class="luxury-footer__logo">33 STORE</div>
+      <p>Curated luxury fashion. Guaranteed 100% authentic, delivered worldwide.</p>
+      <div class="luxury-footer__social">
+        <a href="#" aria-label="Instagram">I</a>
+        <a href="#" aria-label="Facebook">F</a>
+        <a href="#" aria-label="Pinterest">P</a>
+      </div>
+    </div>
+    <div class="luxury-footer__col">
+      <h4>Customer Care</h4>
+      <ul>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Shipping &amp; Delivery</a></li>
+        <li><a href="#">Returns &amp; Exchanges</a></li>
+        <li><a href="#">Product Care</a></li>
+      </ul>
+    </div>
+    <div class="luxury-footer__col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms &amp; Conditions</a></li>
+      </ul>
+    </div>
+    <div class="luxury-footer__col">
+      <h4>Follow</h4>
+      <ul>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Pinterest</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="luxury-footer__bottom">
+    <div class="luxury-footer__bottom-inner">
+      <span>&copy; 2026 33 Store. All rights reserved.</span>
+      <span class="luxury-footer__payments">VISA · MASTERCARD · AMEX · PAYPAL</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= MOBILE MENU ================= -->
+<div class="luxury-menu" aria-hidden="true" data-luxury-menu>
+  <div class="luxury-menu__head">
+    <span class="luxury-header__logo-text">33 STORE</span>
+    <button type="button" class="luxury-menu__close" aria-label="Close menu" data-luxury-menu-close>
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" focusable="false"><path d="M2 2l14 14M16 2 2 16" stroke="currentColor" stroke-width="1.2"/></svg>
+    </button>
+  </div>
+  <nav class="luxury-menu__nav" aria-label="Mobile menu">
+    <ul>
+      <li><a href="#shop">New In</a></li>
+      <li><a href="#shop">Ready To Wear</a></li>
+      <li><a href="#shop">Bags</a></li>
+      <li><a href="#shop">Shoes</a></li>
+      <li><a href="#shop">Accessories</a></li>
+      <li><a href="#sale">Sale</a></li>
+    </ul>
+  </nav>
+  <div class="luxury-menu__footer">
+    <a href="#">Account</a>
+    <a href="#">Bag</a>
+  </div>
+</div>
+
+<!-- ================= SEARCH OVERLAY ================= -->
+<div class="luxury-search" role="search" aria-hidden="true" data-luxury-search>
+  <div class="luxury-search__head">
+    <span class="luxury-search__title">Search</span>
+    <button type="button" class="luxury-search__close" aria-label="Close search" data-luxury-search-close>
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" focusable="false"><path d="M2 2l14 14M16 2 2 16" stroke="currentColor" stroke-width="1.2"/></svg>
+    </button>
+  </div>
+  <form class="luxury-search__form" method="get" action="#">
+    <input type="search" name="s" placeholder="Search products…" aria-label="Search for products" autocomplete="off" data-luxury-search-input />
+    <button type="submit">Search</button>
+  </form>
+  <p class="luxury-search__hint">Enter a brand, style or product name</p>
+</div>
+
+<!-- ================= CART DRAWER ================= -->
+<div class="luxury-drawer" aria-hidden="true" data-luxury-drawer>
+  <div class="luxury-drawer__backdrop" data-luxury-drawer-close></div>
+  <aside class="luxury-drawer__panel" role="dialog" aria-modal="true" aria-label="Shopping bag">
+    <div class="luxury-drawer__head">
+      <h3 class="luxury-drawer__title">Your Bag</h3>
+      <button type="button" class="luxury-drawer__close" aria-label="Close bag" data-luxury-drawer-close>
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" focusable="false"><path d="M2 2l14 14M16 2 2 16" stroke="currentColor" stroke-width="1.2"/></svg>
+      </button>
+    </div>
+    <div class="luxury-drawer__body">
+      <div class="widget_shopping_cart_content">
+        <ul class="woocommerce-mini-cart cart_list product_list_widget">
+          <li class="woocommerce-mini-cart-item mini_cart_item">
+            <a href="#single" class="luxury-drawer__thumb"><img src="img/card-05.jpg" alt="Cloud Clutch Bag" /></a>
+            <div>
+              <a href="#single">Cloud Clutch Bag</a>
+              <span class="quantity">1 × ₾ 1,150</span>
+            </div>
+            <a href="#" class="remove remove_from_cart_button" aria-label="Remove">×</a>
+          </li>
+          <li class="woocommerce-mini-cart-item mini_cart_item">
+            <a href="#single" class="luxury-drawer__thumb"><img src="img/card-03.jpg" alt="Silk Slip Dress" /></a>
+            <div>
+              <a href="#single">Silk Slip Dress</a>
+              <span class="quantity">1 × ₾ 990</span>
+            </div>
+            <a href="#" class="remove remove_from_cart_button" aria-label="Remove">×</a>
+          </li>
+        </ul>
+        <p class="woocommerce-mini-cart__total total"><strong>Subtotal:</strong> <span class="woocommerce-Price-amount">₾ 2,140</span></p>
+        <p class="woocommerce-mini-cart__buttons buttons">
+          <a href="#" class="button wc-forward">View Bag</a>
+          <a href="#" class="button checkout wc-forward">Checkout</a>
+        </p>
+      </div>
+    </div>
+    <p class="luxury-drawer__note">Free express shipping on orders over ₾ 900</p>
+  </aside>
+</div>
+
+<script src="../wp-content/themes/hello-elementor-child/assets/js/luxury-theme.js"></script>
+</body>
+</html>

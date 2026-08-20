@@ -1,0 +1,5 @@
+# Build artifacts
+wp-content/themes/hello-elementor-child/dist/
+
+# Raw downloaded reference imagery (preview crops live in preview/img/)
+image-search/
