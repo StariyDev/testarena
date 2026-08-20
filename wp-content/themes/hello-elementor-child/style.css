@@ -1,0 +1,48 @@
+/*
+Theme Name: 33 Store – Luxury Monochrome Child
+Theme URI:  https://33store.masterpc.ge
+Description: Luxury monochrome design system for 33 Store (Elementor Pro + WooCommerce). Minimalist black/white editorial aesthetic: Cormorant Garamond serif headings, Montserrat uppercase navigation, 3:4 vertical product framing, slide-out cart drawer and a sticky two-column single product layout. Child theme of Hello Elementor.
+Author:      33 Store
+Author URI:  https://33store.masterpc.ge
+Template:    hello-elementor
+Version:     1.0.0
+Requires at least: 6.4
+Tested up to: 6.8
+Requires PHP: 7.4
+License:     GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: thirtythree-store
+Tags:        e-commerce, luxury, fashion, monochrome, custom-logo, custom-menu, editor-style, featured-images, threaded-comments, translation-ready
+*/
+
+/*
+ * 33 STORE — LUXURY MONOCHROME DESIGN SYSTEM
+ * -------------------------------------------
+ * Design tokens live here so they are available even before the
+ * main stylesheet (assets/css/luxury-theme.css) is enqueued.
+ * The full component system is in assets/css/luxury-theme.css.
+ */
+
+:root {
+	/* A. Color palette */
+	--lux-black: #111111;      /* Primary text, buttons, active states */
+	--lux-charcoal: #1A1A1A;   /* Secondary headings, hover states */
+	--lux-muted: #555555;      /* Body copy, metadata, secondary links */
+	--lux-light-gray: #E5E5E5; /* Subtle 1px borders, dividers */
+	--lux-bg-offwhite: #F9F8F6;/* Section backgrounds, modal overlays */
+	--lux-white: #FFFFFF;      /* Primary canvas background */
+
+	/* B. Typography */
+	--lux-font-heading: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+	--lux-font-body: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	--lux-font-accent: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+	/* Layout */
+	--lux-topbar-h: 36px;
+	--lux-header-h: 76px;
+	--lux-gutter: clamp(16px, 4vw, 48px);
+	--lux-maxw: 1440px;
+	--lux-maxw-content: 1200px;
+	--lux-transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	--lux-ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
